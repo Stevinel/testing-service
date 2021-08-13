@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Тестирование{% endblock %}
+{% block header %}Выберите тест{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated  %}
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-9"> 
+                <p><h3 class="main__title">Выберите тест:</h3></p>
+                {% for test in question_list %}
+                    <p><b><a class="p-2 text-dark" href="{% url 'test' test.id %}">{{test}}</a><br></b></p>
+                {% endfor %}
+            </div>
+        </div>
+    </main> 
+{% else %}
+    <a class="p-2 text-dark" href="{% url 'login' %}" style="display:flex;justify-content:center;align-items:center;">Войти</a><br>
+    <a class="p-2 text-dark" href="{% url 'signup' %}" style="display:flex;justify-content:center;align-items:center;">Регистрация</a><br>
+{% endif %}
+
+{% endblock %} 

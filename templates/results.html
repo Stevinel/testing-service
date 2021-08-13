@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Тестирование{% endblock %}
+{% block header %}Пройти тест{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated  %}
+    <p>Тест "{{ test }}" пройден пользователем "{{ request.user }}".</p>
+        
+    Результаты тестирования:
+    <p>Количество правильных ответов: {{ right_answers }}</p>
+    <p>Количество неправильны ответов: {{ wrong_answers }}</p>
+    <p>Процент правильных ответов {{ percent_right_answers }}%</p>
+    <p>Процент неверных ответов {{ pricent_wrong_answers }}%</p>
+    <p>{{ result }}</p>
+
+{% endif %}
+
+{% endblock %} 

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Войти на сайт{% endblock %}
+{% block content %}
+{% load filters %}
+
+<main class="main container">
+    <div class="main__header">
+        <h1 class="main__title">Войти на сайт</h1>
+    </div>
+    {% include 'includes/form.html' with login=True text_button='Войти' form=form %}
+</main>
+{% endblock content %}

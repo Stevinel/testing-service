@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Тестирование{% endblock %}
+{% block header %}Пройти тест{% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated  %}
+    <p><h3 class="main__title">Выбирайте 1 вариант ответа:</h3></p>
+    
+        <div class="checkbox-group required">
+            {% for item in test.question.all %}
+            <form method="post" action="{% url 'new_test_results' item.id %}">
+                <div>
+                    <h6>{{item.title}}</h6>
+                    {% for answer in item.question_item.all %}
+                        <p><input type="radio" name="{{ item.id }}" value="{{ answer }}" required>{{ answer }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">
+            {% csrf_token %}
+            Отправить
+            </button>
+        </div>
+    </form>     
+{% else %}
+    <a class="p-2 text-dark" href="{% url 'login' %}" style="display:flex;justify-content:center;align-items:center;">Войти</a><br>
+    <a class="p-2 text-dark" href="{% url 'signup' %}" style="display:flex;justify-content:center;align-items:center;">Регистрация</a><br>
+{% endif %}
+
+{% endblock %} 
