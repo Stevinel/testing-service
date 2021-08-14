@@ -30,7 +30,7 @@
   1) Склонируйте репозиторий
   ```https://github.com/Stevinel/testing_service```
   2) Установите виртуалуное окружение и активируйте его
-  3) Выполните миграции python manage.py migrate
+  3) Выполните миграции python manage.py migrate и установите зависимости pip install -r requirements.txt
   4) Создайте администратора 
      ```python manage.py createsuperuser```
   5) Запустите сервер 
