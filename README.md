@@ -1,8 +1,6 @@
 # testing_service
 Микросервис по тестированию.
 
-Демо: http://157.90.153.122:8000/
-
 -Login: admin\
 -Password: admin
 
